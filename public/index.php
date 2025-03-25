@@ -10,11 +10,12 @@ HTML;
 
     <?php require __DIR__ . "/../partials/nav.php"; ?>
 
+    <!-- Le contenu spécifique a cette page -->
     <main>
         <h1 class="my-3 display-5 text-center">Liste des films</h1>
         <div class="container">
             <div class="d-flex justify-content-end align-items-center my-3">
-                <a href="" class="btn btn-success shadow"><i class="fa-solid fa-plus"></i> Nouveau film</a>
+                <a href="/create.php" class="btn btn-success shadow"><i class="fa-solid fa-plus"></i> Nouveau film</a>
             </div>
         </div>
     </main>
