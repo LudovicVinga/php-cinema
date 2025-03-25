@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Salut php!</h1>
-</body>
+<?php require __DIR__ . "/../partials/head.php"; ?>
+
+    <?php require __DIR__ . "/../partials/nav.php"; ?>
+
+    <main>
+        <h1>Salut php!</h1>
+    </main>
+    
+    <?php require __DIR__ . "/../partials/footer.php"; ?>
+
+<?php require __DIR__ . "/../partials/scripts_foot.php"; ?>
+
 </html>
