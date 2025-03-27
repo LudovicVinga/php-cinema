@@ -8,7 +8,7 @@
  */
 function dd(mixed $data) : void
 {
-    var_dump("Le jeu continue !!");
+    var_dump("$data");
     die();
     
 }
@@ -22,6 +22,24 @@ function dd(mixed $data) : void
 function dump(mixed $data) : void
 {
     var_dump($data);
+}
+
+/**
+ * Affiche les anciennes données provenant du formulaire.
+ *
+ * @param array $data
+ * @param string $input
+ * @return string
+ */
+function old(array $data, string $input): string
+{
+    if( isset($data[$input]) && $data[$input] !== "" )
+    {
+        unset ($_SESSION['old'][$input]);
+        return $data[$input];
+    }
+
+    return "";
 }
 
 ?>
