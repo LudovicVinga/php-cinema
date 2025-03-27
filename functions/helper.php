@@ -10,6 +10,7 @@ function dd(mixed $data) : void
 {
     var_dump("Le jeu continue !!");
     die();
+    
 }
 
 /**
