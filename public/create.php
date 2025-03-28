@@ -3,6 +3,8 @@ session_start();
 
     require __DIR__ . "/../functions/security.php";
     require __DIR__ . "/../functions/helper.php";
+    require __DIR__ . "/../functions/dbConnector.php";
+    require __DIR__ . "/../functions/filmService.php";
 
     // Si les données du formulaire sont envoyées via la methode POST
     if( $_SERVER['REQUEST_METHOD'] === "POST" )
@@ -118,19 +120,27 @@ session_start();
             return header("Location: create.php");
         }
 
-        dd('legggooooo');
-        
         // Dans le cas contraire (else)
         // 5 - Arrondir la note à un chiffre après la virgule
+        $reviewRounded = null;
+
+        if( $_POST['review'] !== "" )
+        {
+            $reviewRounded = round($_POST['review'], 1);
+        }
 
         // 6 - Etablir une connexion avec la BDD
+        $db = connectDb();
 
         // 7 - Effectuer la requête d'insertion du nouveau film dans la table film
+        createFilm($db, $_POST, $reviewRounded);
 
         // 8 - Générer le message flash de succès
+        $_SESSION['success'] = "Le film <em>{$_POST['title']}</em> a été ajouté avec succès.";
 
         // 9 - Effectuer une redirection vers la page d'accueil
         // puis, arrêter l'éxécution du script.
+        return header("Location: index.php");
     }
 
     // Générer le jeton de sécurité (csrf_token)
